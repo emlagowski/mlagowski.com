@@ -1,160 +1,743 @@
 ---
-import Layout from '../components/Layout.astro';
+import Layout from "../components/Layout.astro";
 ---
 
-<Layout title="About" description="Chief IT Architect at Nationale-Nederlanden, passionate about building reliable software at scale">
+<Layout
+  title="About"
+  description="Chief IT Architect at Nationale-Nederlanden, passionate about building reliable software at scale"
+>
   <section class="about">
     <div class="container container-narrow">
       <header class="about-header">
         <h1>About Me</h1>
         <p class="about-subtitle">Building reliable software at scale.</p>
       </header>
-      
+
       <div class="about-content">
         <section class="about-section">
           <p class="about-intro">
-            I'm a <strong>Chief IT Architect</strong> at Nationale-Nederlanden with over 10 years of 
-            experience in software engineering. I specialize in building scalable, reliable systems 
-            and leading technical teams. My background spans from hands-on development to enterprise 
-            architecture and DevOps practices.
+            Over a decade of work as a <strong>software engineer</strong> behind me.
+            Most of the time I worked in the financial and insurance industry. From
+            the beginning, I was fortunate to work with the latest technologies as
+            a software developer with an interest in DevOps. It has always been a
+            pleasure for me to work with people who share my passion for technology,
+            problem solving and creating something new. This is what I've always been
+            looking for.
           </p>
         </section>
-        
+
         <section class="about-section">
           <h2>Experience</h2>
           <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-header">
-                <h3>Chief IT Architect</h3>
-                <span class="timeline-date">Jan 2024 — Present</span>
+            <!-- PKO BP -->
+            <div class="timeline-company">
+              <div class="timeline-logo">
+                <img src="/logos/pkobp2.png" alt="PKO BP" />
               </div>
-              <p class="timeline-company">Nationale-Nederlanden</p>
-              <p>Leading Architecture Guild, acting as Enterprise Architect. Collaborating in an international environment with architects and heads of application engineers. Advising on regulatory projects and working with external suppliers.</p>
+              <div class="timeline-company-content">
+                <span class="timeline-company-name">PKO Bank Polski</span>
+              </div>
             </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-header">
-                <h3>Technical Product Owner (SRE Team)</h3>
-                <span class="timeline-date">Oct 2022 — Dec 2023</span>
+
+            <div class="timeline-role" data-expandable>
+              <div class="timeline-dot"></div>
+              <div class="timeline-role-content">
+                <div class="timeline-header">
+                  <h3>Lead Software Engineer</h3>
+                  <span class="timeline-date">Sep 2024 - present</span>
+                  <svg
+                    class="expand-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+                <p class="timeline-summary">
+                  As the lead software engineer, I am responsible for the BLIK
+                  system architecture and development.
+                </p>
+                <ul class="timeline-details">
+                  <li>Design and maintain architecture for the BLIK system</li>
+                  <li>Integrate IKO mobile application with the BLIK system</li>
+                  <li>
+                    Deploy and support production BLIK systems on Kubernetes
+                  </li>
+                  <li>Design and develop new features</li>
+                  <li>Implement engineering best practices and standards</li>
+                </ul>
+                <div class="timeline-stack">
+                  Java, Spring Boot, Kubernetes, Istio, Grafana, ELK stack
+                </div>
               </div>
-              <p class="timeline-company">Nationale-Nederlanden</p>
-              <p>Planning and leading Site Reliability Engineering team. Developing common components: GitOps tools (ArgoCD), CI/CD processes (GitLab CI), Kubernetes platform (OKD), and developer tooling.</p>
             </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-header">
-                <h3>Software Engineering Lead</h3>
-                <span class="timeline-date">Oct 2020 — Sep 2022</span>
+
+            <!-- Nationale-Nederlanden -->
+            <div class="timeline-company">
+              <div class="timeline-logo">
+                <img src="/logos/nn.png" alt="Nationale-Nederlanden" />
               </div>
-              <p class="timeline-company">Nationale-Nederlanden</p>
-              <p>Leading Scrum team developing insurance claims platform. Promoting technology guidelines, security standards, and best practices. Influencing architecture decisions within Value Stream Team.</p>
+              <div class="timeline-company-content">
+                <span class="timeline-company-name">Nationale-Nederlanden</span>
+              </div>
             </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-header">
-                <h3>Senior Software Engineer</h3>
-                <span class="timeline-date">Sep 2019 — Oct 2020</span>
+
+            <div class="timeline-role" data-expandable>
+              <div class="timeline-dot"></div>
+              <div class="timeline-role-content">
+                <div class="timeline-header">
+                  <h3>Chief IT Architect</h3>
+                  <span class="timeline-date">Jan 2024 — Aug 2024</span>
+                  <svg
+                    class="expand-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+                <p class="timeline-summary">
+                  Leading Architecture Guild, acting as Enterprise Architect in
+                  international environment.
+                </p>
+                <ul class="timeline-details">
+                  <li>Leading Architecture Guild</li>
+                  <li>Acting as Enterprise Architect</li>
+                  <li>
+                    Collaborating in an international environment with
+                    architects and heads of application engineers
+                  </li>
+                  <li>Advising and contributing to regulatory projects</li>
+                  <li>Working with external suppliers</li>
+                </ul>
               </div>
-              <p class="timeline-company">Nationale-Nederlanden</p>
-              <p>Extending document management systems. Working on CI/CD automation with GitOps approach and supporting developers across teams.</p>
             </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-header">
-                <h3>Software Developer</h3>
-                <span class="timeline-date">Apr 2019 — Aug 2019</span>
+
+            <div class="timeline-role" data-expandable>
+              <div class="timeline-dot"></div>
+              <div class="timeline-role-content">
+                <div class="timeline-header">
+                  <h3>Technical Product Owner (SRE Team)</h3>
+                  <span class="timeline-date">Oct 2022 — Dec 2023</span>
+                  <svg
+                    class="expand-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+                <p class="timeline-summary">
+                  Planning the backlog of SRE team, as well as working with the
+                  team to develop common components that are used by entire
+                  company, in order to increase their reliability, capabilities
+                  and security level.
+                </p>
+                <ul class="timeline-details">
+                  <li>Planning the backlog of SRE team</li>
+                  <li>Developing common components used by entire company</li>
+                  <li>GitOps tools using ArgoCD</li>
+                  <li>CI/CD processes using GitLab CI</li>
+                  <li>Kubernetes platform (OKD)</li>
+                  <li>Libraries and tools used by developers</li>
+                </ul>
+                <div class="timeline-stack">
+                  Kubernetes, GitOps, ArgoCD, Helm, GitLab, Docker
+                </div>
               </div>
-              <p class="timeline-company">PwC</p>
-              <p>Migration of legacy system and development of new microservices architecture using Domain Driven Design.</p>
             </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-header">
-                <h3>Java Developer</h3>
-                <span class="timeline-date">Jan 2018 — Mar 2019</span>
+
+            <div class="timeline-role" data-expandable>
+              <div class="timeline-dot"></div>
+              <div class="timeline-role-content">
+                <div class="timeline-header">
+                  <h3>Software Engineering Lead</h3>
+                  <span class="timeline-date">Oct 2020 — Sep 2022</span>
+                  <svg
+                    class="expand-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+                <p class="timeline-summary">
+                  Leading Scrum team developing insurance claims platform.
+                </p>
+                <ul class="timeline-details">
+                  <li>
+                    Developing platform for online insurance claims application
+                  </li>
+                  <li>
+                    promoting technology guidlines, security and group standards
+                    within team
+                  </li>
+                  <li>
+                    advising PO on technology and specifying backlog, defining
+                    non-functional and technology requirements
+                  </li>
+                  <li>
+                    helping the team to choose the right technology solution
+                  </li>
+                  <li>actively participating in IT technology initiatives</li>
+                  <li>
+                    introducing software development best practices and suggest
+                    improvements to the software development process
+                  </li>
+                  <li>participate in developing CI & CD processes</li>
+                  <li>
+                    having influence on architecture of systems developed within
+                    Value Stream Team
+                  </li>
+                </ul>
+                <div class="timeline-stack">
+                  Spring Boot, Kubernetes, GitOps, ArgoCD, Helm, MSSQL, Docker
+                </div>
               </div>
-              <p class="timeline-company">Raiffeisen Polbank</p>
-              <p>Backend development for card payments (Base24, POS/ATM) and internet transfers. Migrating legacy systems to Spring Boot microservices.</p>
             </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-header">
-                <h3>Java Developer + DevOps Lead</h3>
-                <span class="timeline-date">Dec 2015 — Dec 2017</span>
+
+            <div class="timeline-role" data-expandable>
+              <div class="timeline-dot"></div>
+              <div class="timeline-role-content">
+                <div class="timeline-header">
+                  <h3>Senior Software Engineer</h3>
+                  <span class="timeline-date">Sep 2019 — Oct 2020</span>
+                  <svg
+                    class="expand-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+                <p class="timeline-summary">
+                  Extending the functionality of the document management and
+                  satellite systems. Working with external company on developing
+                  and supporting important internal system.
+                </p>
+                <ul class="timeline-details">
+                  <li>
+                    Extending functionality of document management and satellite
+                    systems
+                  </li>
+                  <li>
+                    Working with external company on developing important
+                    internal system
+                  </li>
+                  <li>Automation of CI/CD processes using GitOps approach</li>
+                  <li>
+                    Supporting developers from different teams in their daily
+                    work
+                  </li>
+                </ul>
+                <div class="timeline-stack">
+                  Spring Boot, Kubernetes, ArgoCD, Helm, Alfresco, PostgreSQL,
+                  Jenkins, Docker
+                </div>
               </div>
-              <p class="timeline-company">Turbine Analytics</p>
-              <p>Backend development of asset management application. Setting up Cassandra, Spark, Docker microservices deployment, and continuous delivery process.</p>
             </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-header">
-                <h3>Intern Java Developer</h3>
-                <span class="timeline-date">May 2014 — Jun 2015</span>
+
+            <!-- PwC -->
+            <div class="timeline-company">
+              <div class="timeline-logo">
+                <img src="/logos/pwc2.png" alt="PwC" />
               </div>
-              <p class="timeline-company">Samsung R&D Poland</p>
-              <p>Developing applications for Android and Java 8, test process automation, performance analysis and code inspection.</p>
+              <div class="timeline-company-content">
+                <span class="timeline-company-name">PwC</span>
+              </div>
+            </div>
+
+            <div class="timeline-role" data-expandable>
+              <div class="timeline-dot"></div>
+              <div class="timeline-role-content">
+                <div class="timeline-header">
+                  <h3>Software Developer</h3>
+                  <span class="timeline-date">Apr 2019 — Aug 2019</span>
+                  <svg
+                    class="expand-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+                <p class="timeline-summary">
+                  Migration of legacy system and microservices development with
+                  DDD.
+                </p>
+                <ul class="timeline-details">
+                  <li>Migration of the legacy system</li>
+                  <li>
+                    Development of foundations of new system in microservice
+                    architecture
+                  </li>
+                  <li>Using Domain Driven Design</li>
+                </ul>
+                <div class="timeline-stack">
+                  Kotlin, Spring Boot, Hibernate, Spock (Groovy), PostgreSQL,
+                  Docker
+                </div>
+              </div>
+            </div>
+
+            <!-- PKO BP (Raiffeisen Polbank) -->
+            <div class="timeline-company">
+              <div class="timeline-logo">
+                <img src="/logos/raiffaisen2.png" alt="Raiffaisen Polbank" />
+              </div>
+              <div class="timeline-company-content">
+                <span class="timeline-company-name">Raiffeisen Polbank</span>
+              </div>
+            </div>
+
+            <div class="timeline-role" data-expandable>
+              <div class="timeline-dot"></div>
+              <div class="timeline-role-content">
+                <div class="timeline-header">
+                  <h3>Java Developer</h3>
+                  <span class="timeline-date">Jan 2018 — Mar 2019</span>
+                  <svg
+                    class="expand-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+                <p class="timeline-summary">
+                  Backend development for card payments and internet transfers.
+                </p>
+                <ul class="timeline-details">
+                  <li>
+                    Backend development of features related to card payments
+                    (Base24, POS/ATM)
+                  </li>
+                  <li>Internet transfers development</li>
+                  <li>
+                    Developing new and migrating legacy systems to Spring Boot
+                    microservices
+                  </li>
+                  <li>
+                    Implementation of multi currency card transactions handling
+                  </li>
+                  <li>Implementation of Hystrix into services</li>
+                  <li>Contribution to CI/CD processes</li>
+                </ul>
+                <div class="timeline-stack">
+                  Java 8, Spring Boot, Hystrix, Consul, Vault, PostgreSQL,
+                  Redis, Docker
+                </div>
+              </div>
+            </div>
+
+            <!-- Turbine Analytics -->
+            <div class="timeline-company">
+              <div class="timeline-logo timeline-logo-white">
+                <img src="/logos/turbine.png" alt="Turbine Analytics" />
+              </div>
+              <div class="timeline-company-content">
+                <span class="timeline-company-name">Turbine Analytics</span>
+              </div>
+            </div>
+
+            <div class="timeline-role" data-expandable>
+              <div class="timeline-dot"></div>
+              <div class="timeline-role-content">
+                <div class="timeline-header">
+                  <h3>Java Developer + DevOps Lead</h3>
+                  <span class="timeline-date">Dec 2015 — Dec 2017</span>
+                  <svg
+                    class="expand-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+                <p class="timeline-summary">
+                  Backend development of asset management application with high
+                  availability.
+                </p>
+                <ul class="timeline-details">
+                  <li>Implementation of new backend features in Java</li>
+                  <li>
+                    Participation in design and implementation of system
+                    architecture
+                  </li>
+                  <li>
+                    Setting up Cassandra, modeling column families for stock
+                    data
+                  </li>
+                  <li>Setting up Spark, implementing Spark jobs in Scala</li>
+                  <li>Design and implementation of external system API</li>
+                  <li>
+                    Deployment of system stack with Docker (microservices,
+                    databases)
+                  </li>
+                  <li>Setting up continuous delivery process</li>
+                </ul>
+                <div class="timeline-stack">
+                  Java 8, Play! Framework, Docker, Swarm, Cassandra, PostgreSQL,
+                  Scala, Spark, RabbitMQ
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-role" data-expandable>
+              <div class="timeline-dot"></div>
+              <div class="timeline-role-content">
+                <div class="timeline-header">
+                  <h3>Junior Java Developer</h3>
+                  <span class="timeline-date">Jul 2015 — Nov 2015</span>
+                  <svg
+                    class="expand-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+                <p class="timeline-summary">
+                  Backend development and Docker containerization.
+                </p>
+                <ul class="timeline-details">
+                  <li>Implementation of new backend features in Java</li>
+                  <li>Third party API Integration (Financial Data)</li>
+                  <li>Development of internal API between microservices</li>
+                  <li>
+                    Moved microservice system deployment to Docker containers
+                  </li>
+                  <li>Creating docker images and stacks based on containers</li>
+                </ul>
+                <div class="timeline-stack">
+                  Java 8, Play! Framework, Docker, PostgreSQL
+                </div>
+              </div>
+            </div>
+
+            <!-- Samsung -->
+            <div class="timeline-company">
+              <div class="timeline-logo">
+                <img src="/logos/samsung3.png" alt="Samsung" />
+              </div>
+              <div class="timeline-company-content">
+                <span class="timeline-company-name">Samsung R&D Poland</span>
+              </div>
+            </div>
+
+            <div class="timeline-role timeline-role-last" data-expandable>
+              <div class="timeline-dot"></div>
+              <div class="timeline-role-content">
+                <div class="timeline-header">
+                  <h3>Intern Java Developer</h3>
+                  <span class="timeline-date">May 2014 — Jun 2015</span>
+                  <svg
+                    class="expand-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </div>
+                <p class="timeline-summary">
+                  Developing applications for Android and Java 8 in Test Process
+                  Support team.
+                </p>
+                <ul class="timeline-details">
+                  <li>Requirements analysis</li>
+                  <li>
+                    Developing applications (mostly for Android and Java 8) for
+                    internal clients
+                  </li>
+                  <li>Automation of test processes</li>
+                  <li>Performance analysis and code inspection</li>
+                </ul>
+                <div class="timeline-stack">
+                  Java 8, Android, Kotlin, JavaFX
+                </div>
+              </div>
             </div>
           </div>
         </section>
-        
+
         <section class="about-section">
           <h2>Education</h2>
           <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-header">
-                <h3>M.Eng. Computer Science</h3>
-                <span class="timeline-date">Graduated Oct 2019</span>
+            <!-- Warsaw University of Technology -->
+            <div class="timeline-company">
+              <div class="timeline-logo timeline-logo-white">
+                <img
+                  src="/logos/pw.png"
+                  alt="Warsaw University of Technology"
+                />
               </div>
-              <p class="timeline-company">Warsaw University of Technology</p>
-              <p>Information Systems Engineering. Thesis: Next location recommendation based on sequential rules mining, recurrent neural networks, and spatial data from social networks.</p>
+              <div class="timeline-company-content">
+                <span class="timeline-company-name"
+                  >Warsaw University of Technology</span
+                >
+              </div>
             </div>
-            <div class="timeline-item">
-              <div class="timeline-header">
-                <h3>B.Eng. Telecommunications</h3>
-                <span class="timeline-date">Graduated Feb 2016</span>
+
+            <div class="timeline-role">
+              <div class="timeline-dot"></div>
+              <div class="timeline-role-content">
+                <div class="timeline-header">
+                  <h3>Master of Engineering in Computer Science</h3>
+                  <span class="timeline-date">Graduated Oct 2019</span>
+                </div>
+                <p class="timeline-summary">
+                  Information Systems Engineering. Thesis: Next location
+                  recommendation based on sequential rules mining, RNN, and
+                  spatial data from social networks.
+                </p>
               </div>
-              <p class="timeline-company">Warsaw University of Technology</p>
-              <p>Information and Communication Technologies. Thesis: SociaInfo – System and mobile application supporting ad-hoc meetings.</p>
+            </div>
+
+            <div class="timeline-role timeline-role-last">
+              <div class="timeline-dot"></div>
+              <div class="timeline-role-content">
+                <div class="timeline-header">
+                  <h3>Bachelor of Engineering in Telecommunications</h3>
+                  <span class="timeline-date">Graduated Feb 2016</span>
+                </div>
+                <p class="timeline-summary">
+                  Information and Communication Technologies. Thesis: SociaInfo
+                  – System and mobile application supporting ad-hoc meetings.
+                </p>
+              </div>
             </div>
           </div>
         </section>
-        
+
         <section class="about-section">
-          <h2>Awards</h2>
-          <div class="awards-grid">
-            <div class="award-item">
-              <span class="award-place">🥇 1st</span>
-              <span class="award-name">NN International Hackathon</span>
-              <span class="award-date">Apr 2024</span>
+          <h2>Hackathons</h2>
+          <div class="hackathons-list">
+            <div class="hackathon-item" data-expandable>
+              <div class="hackathon-header">
+                <span class="hackathon-place">🥇 1st</span>
+                <div class="hackathon-info">
+                  <h3>NN International Hackathon</h3>
+                  <span class="hackathon-meta"
+                    >Nationale-Nederlanden · Apr 2024</span
+                  >
+                </div>
+                <svg
+                  class="expand-icon"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div class="hackathon-details">
+                <p>
+                  As a team of 6 people from Poland, we won against 43 other
+                  teams in the NN International Hackathon (main theme was
+                  'Future ready - Data & AI'). We used Azure AI Services and GPT
+                  API to build an internal solution to help our employees in
+                  their daily work.
+                </p>
+              </div>
             </div>
-            <div class="award-item">
-              <span class="award-place">🥈 2nd</span>
-              <span class="award-name">NN International Hackathon</span>
-              <span class="award-date">Oct 2023</span>
+
+            <div class="hackathon-item" data-expandable>
+              <div class="hackathon-header">
+                <span class="hackathon-place">🥈 2nd</span>
+                <div class="hackathon-info">
+                  <h3>NN International Hackathon</h3>
+                  <span class="hackathon-meta"
+                    >Nationale-Nederlanden · Oct 2023</span
+                  >
+                </div>
+                <svg
+                  class="expand-icon"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div class="hackathon-details">
+                <p>
+                  As a team of three, we got second place (out of 13 places) in
+                  an international hackathon. We used the GPT API to build an
+                  internal solution.
+                </p>
+              </div>
             </div>
-            <div class="award-item">
-              <span class="award-place">🥇 1st</span>
-              <span class="award-name">NN International Hackathon</span>
-              <span class="award-date">Jun 2022</span>
+
+            <div class="hackathon-item" data-expandable>
+              <div class="hackathon-header">
+                <span class="hackathon-place">🥇 1st</span>
+                <div class="hackathon-info">
+                  <h3>NN Sustainability Hackathon "Hack for Good"</h3>
+                  <span class="hackathon-meta"
+                    >Nationale-Nederlanden · Jun 2022</span
+                  >
+                </div>
+                <svg
+                  class="expand-icon"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div class="hackathon-details">
+                <p>
+                  Solve the challenge in the field of sustainable development
+                  and building awareness on climate threat among NN employees.
+                  Our idea was based on creation of an app that helped to
+                  estimate the emitted carbon while using office software. The
+                  concept was based on integration with the Office365 platform,
+                  thanks to which it was possible to estimate the impact of the
+                  employee's activities on the environment and to increase
+                  awareness through gamification elements.
+                </p>
+              </div>
             </div>
-            <div class="award-item">
-              <span class="award-place">🥇 1st</span>
-              <span class="award-name">El Passion x Newonce Hackathon</span>
-              <span class="award-date">Nov 2021</span>
+
+            <div class="hackathon-item" data-expandable>
+              <div class="hackathon-header">
+                <span class="hackathon-place">🥇 1st</span>
+                <div class="hackathon-info">
+                  <h3>Hack4Music&Data</h3>
+                  <span class="hackathon-meta"
+                    >El Passion x Newonce · Nov 2021</span
+                  >
+                </div>
+                <svg
+                  class="expand-icon"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div class="hackathon-details">
+                <p>Hackathon focused on music and data innovation.</p>
+              </div>
             </div>
-            <div class="award-item">
-              <span class="award-place">🥇 1st</span>
-              <span class="award-name">Allegro BrainCode Hackathon</span>
-              <span class="award-date">Mar 2017</span>
+
+            <div class="hackathon-item" data-expandable>
+              <div class="hackathon-header">
+                <span class="hackathon-place">🥇 1st</span>
+                <div class="hackathon-info">
+                  <h3>BrainCode 2017 Warsaw</h3>
+                  <span class="hackathon-meta">Allegro · Mar 2017</span>
+                </div>
+                <svg
+                  class="expand-icon"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div class="hackathon-details">
+                <p>
+                  Extension of Allegro mobile app for sellers with the
+                  possibility of sales strategy choice which is the maximum
+                  price or the shortest time of sales. The application (based on
+                  the historical data from API) allows to sale item at the best
+                  price depending on chosen strategy.
+                </p>
+                <div class="hackathon-stack">Java, Android, Spring Boot</div>
+              </div>
             </div>
-            <div class="award-item">
-              <span class="award-place">🥇 1st</span>
-              <span class="award-name">HP Developer Day Hackathon</span>
-              <span class="award-date">Oct 2015</span>
+
+            <div class="hackathon-item" data-expandable>
+              <div class="hackathon-header">
+                <span class="hackathon-place">🥇 1st</span>
+                <div class="hackathon-info">
+                  <h3>HP Developer Day</h3>
+                  <span class="hackathon-meta">Hewlett-Packard · Oct 2015</span>
+                </div>
+                <svg
+                  class="expand-icon"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <div class="hackathon-details">
+                <p>
+                  As a team of four we had to implement additional features for
+                  a web application that was prepared for us.
+                </p>
+                <div class="hackathon-stack">
+                  Java, Spring, AngularJS, Node.JS, Gulp.JS
+                </div>
+              </div>
             </div>
           </div>
         </section>
-        
+
         <section class="about-section">
           <h2>Skills</h2>
           <div class="skills-grid">
@@ -198,37 +781,89 @@ import Layout from '../components/Layout.astro';
             </div>
           </div>
         </section>
-        
+
         <section class="about-section">
           <h2>Get in Touch</h2>
           <div class="contact-links">
-            <a href="https://github.com/emlagowski" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+            <a
+              href="https://github.com/emlagowski"
+              class="btn btn-ghost"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                width="18"
+                height="18"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                ></path>
               </svg>
               GitHub
             </a>
-            <a href="https://linkedin.com/in/marcinlagowski" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                <rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" />
+            <a
+              href="https://linkedin.com/in/marcinlagowski"
+              class="btn btn-ghost"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                width="18"
+                height="18"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                ></path>
+                <rect x="2" y="9" width="4" height="12"></rect><circle
+                  cx="4"
+                  cy="4"
+                  r="2"></circle>
               </svg>
               LinkedIn
             </a>
-            <a href="https://stackoverflow.com/users/marcinlagowski" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-                <path d="M18 20.5v-8h2v10H4v-10h2v8z" />
-                <path d="M7.5 15h9" />
-                <path d="M7.8 11.4l8.8 1.8" />
-                <path d="M9 7.5l8 4" />
-                <path d="M11 4l6.5 5.5" />
+            <a
+              href="https://stackoverflow.com/users/marcinlagowski"
+              class="btn btn-ghost"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                width="18"
+                height="18"
+              >
+                <path d="M18 20.5v-8h2v10H4v-10h2v8z"></path>
+                <path d="M7.5 15h9"></path>
+                <path d="M7.8 11.4l8.8 1.8"></path>
+                <path d="M9 7.5l8 4"></path>
+                <path d="M11 4l6.5 5.5"></path>
               </svg>
               Stack Overflow
             </a>
             <a href="mailto:marcinlagowski92@gmail.com" class="btn btn-primary">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                <polyline points="22,6 12,13 2,6" />
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                width="18"
+                height="18"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                ></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
               Email Me
             </a>
@@ -243,101 +878,247 @@ import Layout from '../components/Layout.astro';
   .about {
     padding: calc(70px + var(--space-16)) 0 var(--space-16);
   }
-  
+
   .about-header {
     text-align: center;
     margin-bottom: var(--space-12);
   }
-  
+
   .about-header h1 {
     margin-bottom: var(--space-4);
   }
-  
+
   .about-subtitle {
     font-size: var(--text-lg);
     color: var(--color-text-secondary);
   }
-  
+
   .about-section {
     margin-bottom: var(--space-12);
   }
-  
+
   .about-section h2 {
     font-size: var(--text-xl);
     margin-bottom: var(--space-6);
     padding-bottom: var(--space-3);
     border-bottom: 1px solid var(--color-border);
   }
-  
+
   .about-intro {
     font-size: var(--text-lg);
     line-height: 1.8;
     color: var(--color-text-secondary);
   }
-  
+
   .about-intro strong {
     color: var(--color-text);
   }
-  
+
+  /* Timeline - unified continuous line */
   .timeline {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
-  }
-  
-  .timeline-item {
-    padding-left: var(--space-6);
-    border-left: 2px solid var(--color-border);
     position: relative;
+    padding-left: 50px;
   }
-  
-  .timeline-item::before {
-    content: '';
+
+  /* The continuous vertical line */
+  .timeline::before {
+    content: "";
     position: absolute;
-    left: -6px;
-    top: 6px;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--color-accent);
+  }
+
+  /* Company entry with logo */
+  .timeline-company {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) 0;
+  }
+
+  .timeline-logo {
+    position: absolute;
+    left: -48px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #ffffff; */
+    border-radius: 50%;
+    z-index: 2;
+    /* box-shadow: 0 0 0 3px var(--color-bg); */
+    /* Dodajemy to, aby nic nie wystawało poza kółko */
+    overflow: hidden;
+  }
+
+  .timeline-logo-white {
+    background-color: #ffffff;
+  }
+
+  .timeline-logo img {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    object-fit: cover!;
+
+    display: block;
+  }
+
+  .timeline-company-name {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  /* Role entry with dot */
+  .timeline-role {
+    position: relative;
+    padding: var(--space-2) 0;
+    padding-left: var(--space-4);
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    transition: background-color var(--transition-fast);
+  }
+
+  .timeline-role:hover {
+    background-color: var(--color-bg-subtle);
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -29px;
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background-color: var(--color-accent);
+    border: 2px solid var(--color-accent);
+    z-index: 1;
   }
-  
+
+  .timeline-role-last::after {
+    content: "";
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    bottom: -20px;
+    width: 2px;
+    background-color: var(--color-bg);
+  }
+
+  .timeline-role-content {
+    flex: 1;
+  }
+
   .timeline-header {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     flex-wrap: wrap;
     gap: var(--space-2);
     margin-bottom: var(--space-1);
   }
-  
+
   .timeline-header h3 {
     font-size: var(--text-base);
     font-weight: 600;
+    flex: 1;
   }
-  
+
   .timeline-date {
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     color: var(--color-text-muted);
   }
-  
-  .timeline-company {
+
+  .expand-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--color-text-muted);
+    transition: transform var(--transition-base);
+    flex-shrink: 0;
+  }
+
+  .timeline-role.expanded .expand-icon {
+    transform: rotate(180deg);
+  }
+
+  .timeline-summary {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .timeline-details {
+    display: none;
+    margin: var(--space-3) 0 0 0;
+    padding-left: var(--space-4);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    list-style: disc;
+  }
+
+  .timeline-role.expanded .timeline-details {
+    display: block;
+  }
+
+  .timeline-details li {
+    margin-bottom: var(--space-1);
+  }
+
+  .timeline-stack {
+    display: none;
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .timeline-role.expanded .timeline-stack {
+    display: block;
+  }
+
+  /* Education */
+  .education-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .education-item {
+    padding: var(--space-4);
+    background-color: var(--color-bg-subtle);
+    border-radius: var(--radius-md);
+  }
+
+  .education-item h3 {
+    font-size: var(--text-base);
+    font-weight: 600;
+    margin-bottom: var(--space-1);
+  }
+
+  .education-school {
     font-size: var(--text-sm);
     color: var(--color-accent);
     margin-bottom: var(--space-2);
   }
-  
-  .timeline-item p:last-child {
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-  }
-  
+
+  /* Awards */
   .awards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: var(--space-4);
   }
-  
+
   .award-item {
     display: flex;
     align-items: center;
@@ -346,29 +1127,30 @@ import Layout from '../components/Layout.astro';
     background-color: var(--color-bg-subtle);
     border-radius: var(--radius-md);
   }
-  
+
   .award-place {
     font-size: var(--text-lg);
     font-weight: 600;
   }
-  
+
   .award-name {
     flex: 1;
     font-size: var(--text-sm);
     color: var(--color-text-secondary);
   }
-  
+
   .award-date {
     font-size: var(--text-xs);
     color: var(--color-text-muted);
   }
-  
+
+  /* Skills */
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--space-6);
   }
-  
+
   .skill-category h4 {
     font-size: var(--text-sm);
     color: var(--color-text-muted);
@@ -376,16 +1158,124 @@ import Layout from '../components/Layout.astro';
     letter-spacing: 0.05em;
     margin-bottom: var(--space-3);
   }
-  
+
   .skill-tags {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2);
   }
-  
+
+  /* Hackathons */
+  .hackathons-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  @media (max-width: 768px) {
+    .hackathons-list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .hackathon-item {
+    padding: var(--space-4);
+    background-color: var(--color-bg-subtle);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+  }
+
+  .hackathon-item.expanded {
+    grid-column: 1 / -1;
+  }
+
+  .hackathon-item:hover {
+    background-color: var(--color-bg-elevated);
+  }
+
+  .hackathon-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .hackathon-place {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .hackathon-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .hackathon-info h3 {
+    font-size: var(--text-base);
+    font-weight: 600;
+    margin-bottom: var(--space-1);
+  }
+
+  .hackathon-meta {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+  }
+
+  .hackathon-item .expand-icon {
+    flex-shrink: 0;
+  }
+
+  .hackathon-item.expanded .expand-icon {
+    transform: rotate(180deg);
+  }
+
+  .hackathon-details {
+    display: none;
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .hackathon-item.expanded .hackathon-details {
+    display: block;
+  }
+
+  .hackathon-details p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .hackathon-stack {
+    margin-top: var(--space-3);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+  }
+
   .contact-links {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-3);
   }
 </style>
+
+<script>
+  document
+    .querySelectorAll(".timeline-role[data-expandable]")
+    .forEach((item) => {
+      item.addEventListener("click", () => {
+        item.classList.toggle("expanded");
+      });
+    });
+
+  document
+    .querySelectorAll(".hackathon-item[data-expandable]")
+    .forEach((item) => {
+      item.addEventListener("click", () => {
+        item.classList.toggle("expanded");
+      });
+    });
+</script>
