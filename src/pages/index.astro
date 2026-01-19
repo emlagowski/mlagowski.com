@@ -1,0 +1,145 @@
+---
+import Layout from '../components/Layout.astro';
+---
+
+<Layout title="Home" description="Software Engineer crafting digital experiences">
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge animate-fade-in">Software Engineer</div>
+      <h1 class="hero-title animate-fade-in">
+        Marcin<br />Łagowski
+      </h1>
+      <p class="hero-subtitle animate-fade-in">
+        Building software that matters.
+      </p>
+      
+      <nav class="hero-nav animate-fade-in">
+        <a href="/me" class="hero-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          <span>About</span>
+        </a>
+        <a href="/projects" class="hero-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+          </svg>
+          <span>Projects</span>
+        </a>
+        <a href="/articles" class="hero-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 19l7-7 3 3-7 7-3-3z" />
+            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+            <path d="M2 2l7.586 7.586" />
+            <circle cx="11" cy="11" r="2" />
+          </svg>
+          <span>Articles</span>
+        </a>
+        <a href="mailto:marcinlagowski92@gmail.com" class="hero-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          <span>Contact</span>
+        </a>
+      </nav>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 70px);
+    padding: var(--space-8) var(--space-6);
+    margin-top: 70px;
+  }
+  
+  .hero-content {
+    text-align: center;
+    max-width: 600px;
+  }
+  
+  .hero-badge {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    background-color: var(--color-accent-subtle);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-6);
+  }
+  
+  .hero-title {
+    font-size: clamp(3rem, 12vw, 6rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin-bottom: var(--space-6);
+    animation-delay: 0.1s;
+  }
+  
+  .hero-subtitle {
+    font-size: var(--text-xl);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-12);
+    animation-delay: 0.2s;
+  }
+  
+  .hero-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    animation-delay: 0.3s;
+  }
+  
+  .hero-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-5);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    min-width: 100px;
+  }
+  
+  .hero-link:hover {
+    color: var(--color-text);
+    border-color: var(--color-text-muted);
+    transform: translateY(-4px);
+    background-color: var(--color-bg-elevated);
+  }
+  
+  .hero-link svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .hero-link span {
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+  
+  @media (max-width: 480px) {
+    .hero-nav {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .hero-link {
+      min-width: unset;
+    }
+  }
+</style>

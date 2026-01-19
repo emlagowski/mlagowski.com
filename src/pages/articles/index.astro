@@ -1,0 +1,68 @@
+---
+import Layout from '../../components/Layout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+const articles = (await getCollection('articles'))
+  .filter(article => !article.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout title="Articles" description="Thoughts, tutorials, and insights on software development">
+  <section class="articles">
+    <div class="container container-narrow">
+      <header class="articles-header">
+        <h1>Articles</h1>
+        <p>Thoughts, tutorials, and insights.</p>
+      </header>
+      
+      {articles.length > 0 ? (
+        <div class="articles-list">
+          {articles.map(article => (
+            <ArticleCard
+              title={article.data.title}
+              description={article.data.description}
+              href={`/articles/${article.slug}`}
+              date={article.data.date}
+              tags={article.data.tags}
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="empty-state">No articles yet. Check back soon!</p>
+      )}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .articles {
+    padding: calc(70px + var(--space-16)) 0 var(--space-16);
+  }
+  
+  .articles-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+  
+  .articles-header h1 {
+    margin-bottom: var(--space-3);
+  }
+  
+  .articles-header p {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+  }
+  
+  .articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  
+  .empty-state {
+    text-align: center;
+    color: var(--color-text-muted);
+    padding: var(--space-16) 0;
+  }
+</style>
