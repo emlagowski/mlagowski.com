@@ -1,10 +1,16 @@
 ---
-title: "Example Project"
+title: "Watchmate"
 description: "A sample project to demonstrate the portfolio structure. Replace this with your own projects."
-image: ""
+coverImage: "/projects/watchmate/watchmate-cover.png"
+images:
+  - "/projects/watchmate/watchmate-login.png"
+  - "/projects/watchmate/watchmate-main.png"
+  - "/projects/watchmate/watchmate-matches.png"
+  - "/projects/watchmate/watchmate-mates.png"
+  - "/projects/watchmate/watchmate-details.png"
 technologies: ["TypeScript", "React", "Node.js"]
-github: "https://github.com/mlagowski/example"
-demo: "https://example.com"
+# github: "https://github.com/mlagowski/example"
+demo: "https://watch-mate-turborepo.vercel.app"
 featured: false
 date: 2024-01-15
 ---

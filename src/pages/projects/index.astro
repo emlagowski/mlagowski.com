@@ -1,13 +1,14 @@
 ---
-import Layout from '../../components/Layout.astro';
-import ProjectCard from '../../components/ProjectCard.astro';
-import { getCollection } from 'astro:content';
+import Layout from "../../components/Layout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import { getCollection } from "astro:content";
 
-const projects = (await getCollection('projects'))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const projects = (await getCollection("projects")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
 
-const featuredProjects = projects.filter(p => p.data.featured);
-const otherProjects = projects.filter(p => !p.data.featured);
+const featuredProjects = projects.filter((p) => p.data.featured);
+const otherProjects = projects.filter((p) => !p.data.featured);
 ---
 
 <Layout title="Projects" description="A collection of projects I've worked on">
@@ -17,44 +18,58 @@ const otherProjects = projects.filter(p => !p.data.featured);
         <h1>Projects</h1>
         <p>A selection of things I've built.</p>
       </header>
-      
-      {featuredProjects.length > 0 && (
-        <section class="projects-section">
-          <h2>Featured</h2>
-          <div class="projects-grid projects-grid-featured">
-            {featuredProjects.map(project => (
-              <ProjectCard
-                title={project.data.title}
-                description={project.data.description}
-                href={`/projects/${project.slug}`}
-                image={project.data.image}
-                technologies={project.data.technologies}
-              />
-            ))}
-          </div>
-        </section>
-      )}
-      
-      {otherProjects.length > 0 && (
-        <section class="projects-section">
-          {featuredProjects.length > 0 && <h2>Other Projects</h2>}
-          <div class="projects-grid">
-            {otherProjects.map(project => (
-              <ProjectCard
-                title={project.data.title}
-                description={project.data.description}
-                href={`/projects/${project.slug}`}
-                image={project.data.image}
-                technologies={project.data.technologies}
-              />
-            ))}
-          </div>
-        </section>
-      )}
-      
-      {projects.length === 0 && (
-        <p class="empty-state">No projects yet. Check back soon!</p>
-      )}
+
+      {
+        featuredProjects.length > 0 && (
+          <section class="projects-section">
+            <h2>Featured</h2>
+            <div class="projects-grid projects-grid-featured">
+              {featuredProjects.map((project) => (
+                <ProjectCard
+                  title={project.data.title}
+                  description={project.data.description}
+                  href={`/projects/${project.slug}`}
+                  image={
+                    project.data.coverImage ||
+                    project.data.images[0] ||
+                    project.data.image
+                  }
+                  technologies={project.data.technologies}
+                />
+              ))}
+            </div>
+          </section>
+        )
+      }
+
+      {
+        otherProjects.length > 0 && (
+          <section class="projects-section">
+            {featuredProjects.length > 0 && <h2>Other Projects</h2>}
+            <div class="projects-grid">
+              {otherProjects.map((project) => (
+                <ProjectCard
+                  title={project.data.title}
+                  description={project.data.description}
+                  href={`/projects/${project.slug}`}
+                  image={
+                    project.data.coverImage ||
+                    project.data.images[0] ||
+                    project.data.image
+                  }
+                  technologies={project.data.technologies}
+                />
+              ))}
+            </div>
+          </section>
+        )
+      }
+
+      {
+        projects.length === 0 && (
+          <p class="empty-state">No projects yet. Check back soon!</p>
+        )
+      }
     </div>
   </section>
 </Layout>
@@ -63,47 +78,47 @@ const otherProjects = projects.filter(p => !p.data.featured);
   .projects {
     padding: calc(70px + var(--space-16)) 0 var(--space-16);
   }
-  
+
   .projects-header {
     text-align: center;
     margin-bottom: var(--space-12);
   }
-  
+
   .projects-header h1 {
     margin-bottom: var(--space-3);
   }
-  
+
   .projects-header p {
     font-size: var(--text-lg);
     color: var(--color-text-secondary);
   }
-  
+
   .projects-section {
     margin-bottom: var(--space-12);
   }
-  
+
   .projects-section h2 {
     font-size: var(--text-lg);
     color: var(--color-text-muted);
     margin-bottom: var(--space-6);
   }
-  
+
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: var(--space-6);
   }
-  
+
   .projects-grid-featured {
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   }
-  
+
   .empty-state {
     text-align: center;
     color: var(--color-text-muted);
     padding: var(--space-16) 0;
   }
-  
+
   @media (max-width: 480px) {
     .projects-grid,
     .projects-grid-featured {

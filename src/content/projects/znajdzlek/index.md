@@ -1,11 +1,17 @@
 ---
-title: "Example Project"
+title: "Znajdź Lek"
 description: "A sample project to demonstrate the portfolio structure. Replace this with your own projects."
-image: ""
+coverImage: "/projects/znajdzlek/znajdz-lek-cover.png"
+images:
+  - "/projects/znajdzlek/znajdz-lek-main.png"
+  - "/projects/znajdzlek/znajdz-lek-main-bulk.png"
+  - "/projects/znajdzlek/znajdz-lek-results.png"
+  - "/projects/znajdzlek/znajdz-lek-filter.png"
+  - "/projects/znajdzlek/znajdz-lek-details.png"
 technologies: ["TypeScript", "React", "Node.js"]
 github: "https://github.com/mlagowski/example"
-demo: "https://example.com"
-featured: false
+demo: "https://znajdzlek.vercel.app"
+featured: true
 date: 2024-01-15
 ---
 
@@ -17,7 +23,6 @@ This is a sample project entry. Replace this content with information about your
 
 - Feature one
 - Feature two
-- Feature three
 
 ## Technical Details
 

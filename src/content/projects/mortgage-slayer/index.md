@@ -1,11 +1,15 @@
 ---
-title: "Znajdź Lek"
+title: "Mortgage Slayer"
 description: "A sample project to demonstrate the portfolio structure. Replace this with your own projects."
-image: ""
+coverImage: "/projects/mortgage-slayer/mortgage-slayer-cover.png"
+images:
+  - "/projects/mortgage-slayer/mortgage-slayer-main.png"
+  - "/projects/mortgage-slayer/mortgage-slayer-form.png"
+  - "/projects/mortgage-slayer/mortgage-slayer-result.png"
 technologies: ["TypeScript", "React", "Node.js"]
 github: "https://github.com/mlagowski/example"
-demo: "https://znajdzlek.vercel.app"
-featured: true
+demo: "https://example.com"
+featured: false
 date: 2024-01-15
 ---
 
@@ -17,6 +21,7 @@ This is a sample project entry. Replace this content with information about your
 
 - Feature one
 - Feature two
+- Feature three
 
 ## Technical Details
 

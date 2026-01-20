@@ -1,7 +1,15 @@
 ---
-title: "Example Project"
+title: "MTG Center"
 description: "A sample project to demonstrate the portfolio structure. Replace this with your own projects."
-image: ""
+coverImage: "/projects/mtg-center/mtg-cover.png"
+images:
+  - "/projects/mtg-center/mtg-cover.png"
+  - "/projects/mtg-center/mtg-ai-assistants.png"
+  - "/projects/mtg-center/mtg-ai-models.png"
+  - "/projects/mtg-center/mtg-recommendations-adds.png"
+  - "/projects/mtg-center/mtg-recommendations-adds-2.png"
+  - "/projects/mtg-center/mtg-recommendations-cuts.png"
+  - "/projects/mtg-center/mtg-recommendations-cuts-2.png"
 technologies: ["TypeScript", "React", "Node.js"]
 github: "https://github.com/mlagowski/example"
 demo: "https://example.com"
