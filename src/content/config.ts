@@ -7,6 +7,7 @@ const projects = defineCollection({
         description: z.string(),
         image: z.string().optional(),
         coverImage: z.string().optional(),
+        coverTheme: z.enum(['light', 'dark']).default('dark'),
         images: z.array(z.string()).default([]),
         technologies: z.array(z.string()).default([]),
         github: z.string().url().optional(),

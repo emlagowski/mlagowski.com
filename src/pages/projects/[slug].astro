@@ -41,7 +41,12 @@ const { Content } = await project.render();
           project.data.technologies && project.data.technologies.length > 0 && (
             <div class="project-tech">
               {project.data.technologies.map((tech) => (
-                <span class="tag">{tech}</span>
+                <a
+                  href={`/projects?tech=${encodeURIComponent(tech)}`}
+                  class="tag tag-link"
+                >
+                  {tech}
+                </a>
               ))}
             </div>
           )
@@ -102,15 +107,80 @@ const { Content } = await project.render();
           <div class="project-gallery">
             <h2>Screenshots</h2>
             <div class="gallery-grid">
-              {project.data.images.map((img) => (
-                <div class="gallery-item">
-                  <img src={img} alt={project.data.title} loading="lazy" />
-                </div>
+              {project.data.images.map((img, index) => (
+                <button
+                  class="gallery-item"
+                  data-lightbox-trigger
+                  data-index={index}
+                >
+                  <img
+                    src={img}
+                    alt={`${project.data.title} screenshot ${index + 1}`}
+                    loading="lazy"
+                  />
+                  <div class="gallery-item-overlay">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      width="24"
+                      height="24"
+                    >
+                      <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                    </svg>
+                  </div>
+                </button>
               ))}
             </div>
           </div>
         )
       }
+
+      <!-- Lightbox Modal -->
+      <div class="lightbox" id="lightbox" hidden>
+        <button class="lightbox-close" aria-label="Close">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            width="32"
+            height="32"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <button class="lightbox-nav lightbox-prev" aria-label="Previous">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            width="32"
+            height="32"
+          >
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="lightbox-nav lightbox-next" aria-label="Next">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            width="32"
+            height="32"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+        <div class="lightbox-content">
+          <img id="lightbox-img" src="" alt="" />
+        </div>
+        <div class="lightbox-counter" id="lightbox-counter"></div>
+      </div>
 
       <div class="prose">
         <Content />
@@ -118,6 +188,74 @@ const { Content } = await project.render();
     </div>
   </article>
 </Layout>
+
+<script define:vars={{ images: project.data.images || [] }}>
+  function initLightbox() {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxCounter = document.getElementById("lightbox-counter");
+    const triggers = document.querySelectorAll("[data-lightbox-trigger]");
+    const closeBtn = document.querySelector(".lightbox-close");
+    const prevBtn = document.querySelector(".lightbox-prev");
+    const nextBtn = document.querySelector(".lightbox-next");
+
+    if (!lightbox || !triggers.length) return;
+
+    let currentIndex = 0;
+    const imageList = images;
+
+    function showImage(index) {
+      currentIndex = index;
+      if (currentIndex < 0) currentIndex = imageList.length - 1;
+      if (currentIndex >= imageList.length) currentIndex = 0;
+
+      lightboxImg.src = imageList[currentIndex];
+      lightboxImg.alt = `Screenshot ${currentIndex + 1}`;
+      lightboxCounter.textContent = `${currentIndex + 1} / ${imageList.length}`;
+    }
+
+    function openLightbox(index) {
+      showImage(index);
+      lightbox.hidden = false;
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.hidden = true;
+      document.body.style.overflow = "";
+    }
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const index = parseInt(trigger.getAttribute("data-index") || "0");
+        openLightbox(index);
+      });
+    });
+
+    closeBtn?.addEventListener("click", closeLightbox);
+    prevBtn?.addEventListener("click", () => showImage(currentIndex - 1));
+    nextBtn?.addEventListener("click", () => showImage(currentIndex + 1));
+
+    lightbox.addEventListener("click", (e) => {
+      if (
+        e.target === lightbox ||
+        e.target.classList.contains("lightbox-content")
+      ) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (lightbox.hidden) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+      if (e.key === "ArrowRight") showImage(currentIndex + 1);
+    });
+  }
+
+  initLightbox();
+  document.addEventListener("astro:page-load", initLightbox);
+</script>
 
 <style>
   .project-detail {
@@ -160,6 +298,16 @@ const { Content } = await project.render();
     margin-bottom: var(--space-6);
   }
 
+  .tag-link {
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+
+  .tag-link:hover {
+    background-color: var(--color-accent-subtle);
+    color: var(--color-accent);
+  }
+
   .project-links {
     display: flex;
     flex-wrap: wrap;
@@ -182,9 +330,13 @@ const { Content } = await project.render();
   }
 
   .gallery-item {
+    position: relative;
     border-radius: var(--radius-lg);
     overflow: hidden;
     border: 1px solid var(--color-border);
+    background: none;
+    padding: 0;
+    cursor: zoom-in;
     transition:
       transform var(--transition-base),
       border-color var(--transition-base);
@@ -201,9 +353,121 @@ const { Content } = await project.render();
     display: block;
   }
 
+  .gallery-item-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  .gallery-item-overlay svg {
+    color: white;
+  }
+
+  .gallery-item:hover .gallery-item-overlay {
+    opacity: 1;
+  }
+
+  /* Lightbox Modal */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox[hidden] {
+    display: none;
+  }
+
+  .lightbox-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: var(--radius-full);
+    padding: var(--space-2);
+    cursor: pointer;
+    color: white;
+    transition: background var(--transition-fast);
+  }
+
+  .lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: var(--radius-full);
+    padding: var(--space-3);
+    cursor: pointer;
+    color: white;
+    transition: background var(--transition-fast);
+  }
+
+  .lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .lightbox-prev {
+    left: var(--space-4);
+  }
+
+  .lightbox-next {
+    right: var(--space-4);
+  }
+
+  .lightbox-counter {
+    position: absolute;
+    bottom: var(--space-4);
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: var(--text-sm);
+  }
+
   @media (max-width: 640px) {
     .gallery-grid {
       grid-template-columns: 1fr;
+    }
+
+    .lightbox-nav {
+      padding: var(--space-2);
+    }
+
+    .lightbox-prev {
+      left: var(--space-2);
+    }
+
+    .lightbox-next {
+      right: var(--space-2);
     }
   }
 </style>

@@ -9,6 +9,11 @@ const projects = (await getCollection("projects")).sort(
 
 const featuredProjects = projects.filter((p) => p.data.featured);
 const otherProjects = projects.filter((p) => !p.data.featured);
+
+// Zebranie wszystkich unikalnych technologii
+const allTechnologies = [
+  ...new Set(projects.flatMap((p) => p.data.technologies)),
+].sort();
 ---
 
 <Layout title="Projects" description="A collection of projects I've worked on">
@@ -19,23 +24,45 @@ const otherProjects = projects.filter((p) => !p.data.featured);
         <p>A selection of things I've built.</p>
       </header>
 
+      <!-- Tech Filter -->
+      {
+        allTechnologies.length > 0 && (
+          <div class="tech-filter" id="tech-filter">
+            <button class="filter-tag active" data-tech="">
+              All
+            </button>
+            {allTechnologies.map((tech) => (
+              <button class="filter-tag" data-tech={tech}>
+                {tech}
+              </button>
+            ))}
+          </div>
+        )
+      }
+
       {
         featuredProjects.length > 0 && (
-          <section class="projects-section">
+          <section class="projects-section" data-section="featured">
             <h2>Featured</h2>
             <div class="projects-grid projects-grid-featured">
               {featuredProjects.map((project) => (
-                <ProjectCard
-                  title={project.data.title}
-                  description={project.data.description}
-                  href={`/projects/${project.slug}`}
-                  image={
-                    project.data.coverImage ||
-                    project.data.images[0] ||
-                    project.data.image
-                  }
-                  technologies={project.data.technologies}
-                />
+                <div
+                  class="project-wrapper"
+                  data-technologies={project.data.technologies.join(",")}
+                >
+                  <ProjectCard
+                    title={project.data.title}
+                    description={project.data.description}
+                    href={`/projects/${project.slug}`}
+                    image={
+                      project.data.coverImage ||
+                      project.data.images[0] ||
+                      project.data.image
+                    }
+                    technologies={project.data.technologies}
+                    theme={project.data.coverTheme}
+                  />
+                </div>
               ))}
             </div>
           </section>
@@ -44,21 +71,27 @@ const otherProjects = projects.filter((p) => !p.data.featured);
 
       {
         otherProjects.length > 0 && (
-          <section class="projects-section">
+          <section class="projects-section" data-section="other">
             {featuredProjects.length > 0 && <h2>Other Projects</h2>}
             <div class="projects-grid">
               {otherProjects.map((project) => (
-                <ProjectCard
-                  title={project.data.title}
-                  description={project.data.description}
-                  href={`/projects/${project.slug}`}
-                  image={
-                    project.data.coverImage ||
-                    project.data.images[0] ||
-                    project.data.image
-                  }
-                  technologies={project.data.technologies}
-                />
+                <div
+                  class="project-wrapper"
+                  data-technologies={project.data.technologies.join(",")}
+                >
+                  <ProjectCard
+                    title={project.data.title}
+                    description={project.data.description}
+                    href={`/projects/${project.slug}`}
+                    image={
+                      project.data.coverImage ||
+                      project.data.images[0] ||
+                      project.data.image
+                    }
+                    technologies={project.data.technologies}
+                    theme={project.data.coverTheme}
+                  />
+                </div>
               ))}
             </div>
           </section>
@@ -74,6 +107,73 @@ const otherProjects = projects.filter((p) => !p.data.featured);
   </section>
 </Layout>
 
+<script>
+  function initFilters() {
+    const filterContainer = document.getElementById("tech-filter");
+    if (!filterContainer) return;
+
+    const filterButtons = filterContainer.querySelectorAll(".filter-tag");
+    const projectWrappers = document.querySelectorAll(".project-wrapper");
+    const sections = document.querySelectorAll(".projects-section");
+
+    // Read initial filter from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialTech = urlParams.get("tech") || "";
+
+    function setActiveFilter(tech: string) {
+      // Update active button state
+      filterButtons.forEach((btn) => {
+        const btnTech = btn.getAttribute("data-tech") || "";
+        btn.classList.toggle("active", btnTech === tech);
+      });
+
+      // Filter projects
+      projectWrappers.forEach((wrapper) => {
+        const technologies = (
+          wrapper.getAttribute("data-technologies") || ""
+        ).split(",");
+        const matches = tech === "" || technologies.includes(tech);
+        (wrapper as HTMLElement).style.display = matches ? "" : "none";
+      });
+
+      // Hide section headers if all projects in section are hidden
+      sections.forEach((section) => {
+        const visibleProjects = section.querySelectorAll(
+          '.project-wrapper:not([style*="display: none"])',
+        );
+        (section as HTMLElement).style.display =
+          visibleProjects.length > 0 ? "" : "none";
+      });
+
+      // Update URL without reload
+      const url = new URL(window.location.href);
+      if (tech) {
+        url.searchParams.set("tech", tech);
+      } else {
+        url.searchParams.delete("tech");
+      }
+      window.history.replaceState({}, "", url);
+    }
+
+    // Set initial state
+    setActiveFilter(initialTech);
+
+    // Add click handlers
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const tech = btn.getAttribute("data-tech") || "";
+        setActiveFilter(tech);
+      });
+    });
+  }
+
+  // Initialize on page load
+  initFilters();
+
+  // Re-initialize on Astro page transitions
+  document.addEventListener("astro:page-load", initFilters);
+</script>
+
 <style>
   .projects {
     padding: calc(70px + var(--space-16)) 0 var(--space-16);
@@ -81,7 +181,7 @@ const otherProjects = projects.filter((p) => !p.data.featured);
 
   .projects-header {
     text-align: center;
-    margin-bottom: var(--space-12);
+    margin-bottom: var(--space-8);
   }
 
   .projects-header h1 {
@@ -91,6 +191,38 @@ const otherProjects = projects.filter((p) => !p.data.featured);
   .projects-header p {
     font-size: var(--text-lg);
     color: var(--color-text-secondary);
+  }
+
+  /* Tech Filter */
+  .tech-filter {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-10);
+  }
+
+  .filter-tag {
+    padding: var(--space-1) var(--space-3);
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .filter-tag:hover {
+    border-color: var(--color-text-secondary);
+    color: var(--color-text-secondary);
+  }
+
+  .filter-tag.active {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background-color: var(--color-accent-subtle);
   }
 
   .projects-section {
@@ -105,12 +237,16 @@ const otherProjects = projects.filter((p) => !p.data.featured);
 
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: var(--space-6);
   }
 
   .projects-grid-featured {
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  }
+
+  .project-wrapper {
+    display: block;
   }
 
   .empty-state {
