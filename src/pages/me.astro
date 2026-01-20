@@ -10,7 +10,9 @@ import Layout from "../components/Layout.astro";
     <div class="container container-narrow">
       <header class="about-header">
         <h1>About Me</h1>
-        <p class="about-subtitle">Building reliable software at scale.</p>
+        <p class="about-subtitle">
+          Focusing on software reliability and architecture.
+        </p>
       </header>
 
       <div class="about-content">
@@ -557,9 +559,7 @@ import Layout from "../components/Layout.astro";
                 <span class="hackathon-place">🥇 1st</span>
                 <div class="hackathon-info">
                   <h3>NN International Hackathon</h3>
-                  <span class="hackathon-meta"
-                    >Nationale-Nederlanden · Apr 2024</span
-                  >
+                  <span class="hackathon-meta">NN - Amsterdam · Apr 2024</span>
                 </div>
                 <svg
                   class="expand-icon"
@@ -589,9 +589,7 @@ import Layout from "../components/Layout.astro";
                 <span class="hackathon-place">🥈 2nd</span>
                 <div class="hackathon-info">
                   <h3>NN International Hackathon</h3>
-                  <span class="hackathon-meta"
-                    >Nationale-Nederlanden · Oct 2023</span
-                  >
+                  <span class="hackathon-meta">NN - Budapest · Oct 2023</span>
                 </div>
                 <svg
                   class="expand-icon"
@@ -618,10 +616,8 @@ import Layout from "../components/Layout.astro";
               <div class="hackathon-header">
                 <span class="hackathon-place">🥇 1st</span>
                 <div class="hackathon-info">
-                  <h3>NN Sustainability Hackathon "Hack for Good"</h3>
-                  <span class="hackathon-meta"
-                    >Nationale-Nederlanden · Jun 2022</span
-                  >
+                  <h3>NN "Hack for Good"</h3>
+                  <span class="hackathon-meta">NN - Hague · Jun 2022</span>
                 </div>
                 <svg
                   class="expand-icon"
@@ -680,7 +676,8 @@ import Layout from "../components/Layout.astro";
                 <span class="hackathon-place">🥇 1st</span>
                 <div class="hackathon-info">
                   <h3>BrainCode 2017 Warsaw</h3>
-                  <span class="hackathon-meta">Allegro · Mar 2017</span>
+                  <span class="hackathon-meta">Allegro · Warsaw · Mar 2017</span
+                  >
                 </div>
                 <svg
                   class="expand-icon"
@@ -711,7 +708,9 @@ import Layout from "../components/Layout.astro";
                 <span class="hackathon-place">🥇 1st</span>
                 <div class="hackathon-info">
                   <h3>HP Developer Day</h3>
-                  <span class="hackathon-meta">Hewlett-Packard · Oct 2015</span>
+                  <span class="hackathon-meta"
+                    >Hewlett-Packard · Łódź · Oct 2015</span
+                  >
                 </div>
                 <svg
                   class="expand-icon"
@@ -1271,11 +1270,39 @@ import Layout from "../components/Layout.astro";
       });
     });
 
-  document
-    .querySelectorAll(".hackathon-item[data-expandable]")
-    .forEach((item) => {
-      item.addEventListener("click", () => {
-        item.classList.toggle("expanded");
+  // Hackathons: only one expanded at a time
+  const hackathonItems = Array.from(
+    document.querySelectorAll(".hackathon-item[data-expandable]"),
+  );
+
+  // Store original positions
+  hackathonItems.forEach((item, index) => {
+    item.style.order = index;
+  });
+
+  hackathonItems.forEach((item, index) => {
+    item.addEventListener("click", () => {
+      const wasExpanded = item.classList.contains("expanded");
+
+      // Reset all orders and close all
+      hackathonItems.forEach((other, idx) => {
+        other.classList.remove("expanded");
+        other.style.order = idx;
       });
+
+      // Toggle clicked item
+      if (!wasExpanded) {
+        item.classList.add("expanded");
+
+        // If right column (odd index), swap order with left neighbor
+        if (index % 2 === 1) {
+          const leftItem = hackathonItems[index - 1];
+          if (leftItem) {
+            item.style.order = index - 1;
+            leftItem.style.order = index;
+          }
+        }
+      }
     });
+  });
 </script>
