@@ -25,6 +25,9 @@ const articles = defineCollection({
         date: z.coerce.date(),
         tags: z.array(z.string()).default([]),
         draft: z.boolean().default(false),
+        coverImage: z.string().optional(),
+        coverTheme: z.enum(['light', 'dark']).default('dark'),
+        featured: z.boolean().default(false),
     }),
 });
 

@@ -1,8 +1,9 @@
 ---
 title: "Mortgage Slayer"
 description: "A sample project to demonstrate the portfolio structure. Replace this with your own projects."
-coverImage: "/projects/mortgage-slayer/mortgage-slayer-cover.png"
+coverImage: "/projects/mortgage-slayer/mortgage-slayer-cover2.png"
 images:
+  - "/projects/mortgage-slayer/mortgage-slayer-cover2.png"
   - "/projects/mortgage-slayer/mortgage-slayer-main.png"
   - "/projects/mortgage-slayer/mortgage-slayer-form.png"
   - "/projects/mortgage-slayer/mortgage-slayer-result.png"

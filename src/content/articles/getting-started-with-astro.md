@@ -4,6 +4,7 @@ description: "An introduction to building fast, content-focused websites with As
 date: 2024-01-10
 tags: ["Astro", "Web Development", "Tutorial"]
 draft: false
+coverImage: "articles/coding.png"
 ---
 
 This is a sample article to demonstrate the blog functionality. Replace this with your own content.

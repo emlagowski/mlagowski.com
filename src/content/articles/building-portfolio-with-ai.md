@@ -4,6 +4,8 @@ description: "How I built this entire portfolio website using AI-assisted develo
 date: 2025-01-20
 tags: ["AI", "Google Antigravity", "Astro", "Web Development", "Portfolio"]
 draft: false
+featured: true
+coverImage: "articles/coding.png"
 ---
 
 > **Disclaimer**: This article, like the entire website you're viewing, was created with the assistance of AI — specifically Google Antigravity. The irony is not lost on me.
