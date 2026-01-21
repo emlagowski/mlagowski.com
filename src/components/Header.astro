@@ -244,5 +244,10 @@ const currentPath = Astro.url.pathname;
     const next = current === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", next);
     localStorage.setItem("theme", next);
+
+    // Umami tracking
+    if (typeof umami !== "undefined") {
+      umami.track("theme-toggle", { theme: next });
+    }
   });
 </script>
