@@ -36,16 +36,16 @@ Before starting, I defined clear requirements for the portfolio:
 
 | Requirement | Status | Notes |
 |-------------|--------|-------|
-| Modern, minimalist design | ✅ Met | Dark theme with blue accents |
-| Responsive layout | ✅ Met | Works on mobile and desktop |
-| Blog/Articles section | ✅ Met | Markdown-based with content collections |
-| Projects showcase | ✅ Met | Card-based grid layout |
-| About page with experience timeline | ✅ Met | Interactive, expandable cards |
-| Light/Dark theme toggle | ✅ Met | Persistent preference storage |
-| Fast loading (static site) | ✅ Met | Astro's zero-JS by default |
-| Easy deployment | ✅ Met | GitHub Actions to GitHub Pages |
-| CV integration | ✅ Met | Parsed PDF and structured into timeline |
-| Company logos on timeline | ✅ Met | Required providing PNG assets |
+| Modern, minimalist design | ✅ | Dark theme with blue accents |
+| Responsive layout | ✅ | Works on mobile and desktop |
+| Blog/Articles section | ✅ | Markdown-based with content collections |
+| Projects showcase | ✅ | Card-based grid layout |
+| About page with experience timeline | ✅ | Interactive, expandable cards |
+| Light/Dark theme toggle | ✅ | Persistent preference storage |
+| Fast loading (static site) | ✅ | Astro's zero-JS by default |
+| Easy deployment | ✅ | GitHub Actions to GitHub Pages |
+| CV integration | ✅ | Parsed PDF and structured into timeline |
+| Company logos on timeline | ✅ | Required providing PNG assets |
 
 **Success rate: 100%** — all requirements were met, though some needed multiple iterations.
 
