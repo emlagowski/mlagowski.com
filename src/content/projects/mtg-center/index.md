@@ -10,9 +10,8 @@ images:
   - "/projects/mtg-center/mtg-recommendations-adds-2.png"
   - "/projects/mtg-center/mtg-recommendations-cuts.png"
   - "/projects/mtg-center/mtg-recommendations-cuts-2.png"
-technologies: ["TypeScript", "React", "Node.js"]
-github: "https://github.com/mlagowski/example"
-demo: "https://example.com"
+technologies: ["TypeScript", "React", "Tailwind", "Vercel", "Supabase", "AI", "Cursor"]
+demo: "https://mtg-center.vercel.app/"
 featured: false
 date: 2024-01-15
 ---

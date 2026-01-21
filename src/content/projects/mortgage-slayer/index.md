@@ -7,9 +7,9 @@ images:
   - "/projects/mortgage-slayer/mortgage-slayer-main.png"
   - "/projects/mortgage-slayer/mortgage-slayer-form.png"
   - "/projects/mortgage-slayer/mortgage-slayer-result.png"
-technologies: ["TypeScript", "React", "Node.js"]
-github: "https://github.com/mlagowski/example"
-demo: "https://example.com"
+technologies: ["TypeScript", "React", "Tailwind", "Vercel", "Supabase"]
+# github: "https://github.com/mlagowski/example"
+demo: "https://mortgage-slayer.vercel.app"
 featured: false
 date: 2024-01-15
 ---

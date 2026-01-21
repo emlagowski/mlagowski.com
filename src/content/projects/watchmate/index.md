@@ -8,8 +8,7 @@ images:
   - "/projects/watchmate/watchmate-matches.png"
   - "/projects/watchmate/watchmate-mates.png"
   - "/projects/watchmate/watchmate-details.png"
-technologies: ["TypeScript", "React", "Node.js"]
-# github: "https://github.com/mlagowski/example"
+technologies: ["TypeScript", "React Native", "Expo", "Vercel", "Supabase"]
 demo: "https://watch-mate-turborepo.vercel.app"
 featured: false
 date: 2024-01-15

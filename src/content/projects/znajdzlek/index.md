@@ -8,8 +8,8 @@ images:
   - "/projects/znajdzlek/znajdz-lek-results.png"
   - "/projects/znajdzlek/znajdz-lek-filter.png"
   - "/projects/znajdzlek/znajdz-lek-details.png"
-technologies: ["TypeScript", "React", "Node.js"]
-github: "https://github.com/mlagowski/example"
+technologies: ["TypeScript", "React", "Tailwind", "Vercel", "Supabase", "AI", "Google Antigravity"]
+# github: "https://github.com/mlagowski/example"
 demo: "https://znajdzlek.vercel.app"
 featured: true
 date: 2024-01-15
