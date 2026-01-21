@@ -1318,11 +1318,20 @@ import Layout from "../components/Layout.astro";
 </style>
 
 <script>
+  // Timeline roles: track expansion with Umami
   document
     .querySelectorAll(".timeline-role[data-expandable]")
     .forEach((item) => {
       item.addEventListener("click", () => {
+        const wasExpanded = item.classList.contains("expanded");
         item.classList.toggle("expanded");
+
+        // Track with Umami when expanding (not collapsing)
+        if (!wasExpanded && typeof umami !== "undefined") {
+          const roleTitle =
+            item.querySelector("h3")?.textContent?.trim() || "Unknown Role";
+          umami.track("expand-work-position", { role: roleTitle });
+        }
       });
     });
 
@@ -1352,6 +1361,14 @@ import Layout from "../components/Layout.astro";
       // Toggle clicked item
       if (!wasExpanded) {
         item.classList.add("expanded");
+
+        // Track with Umami when expanding
+        if (typeof umami !== "undefined") {
+          const hackathonTitle =
+            item.querySelector("h3")?.textContent?.trim() ||
+            "Unknown Hackathon";
+          umami.track("expand-hackathon", { hackathon: hackathonTitle });
+        }
 
         // Only swap order if we're in multi-column layout (not mobile)
         // If right column (odd index), swap order with left neighbor so it appears first in its row
