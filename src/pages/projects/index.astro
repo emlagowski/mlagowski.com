@@ -28,11 +28,21 @@ const allTechnologies = [
       {
         allTechnologies.length > 0 && (
           <div class="tech-filter" id="tech-filter">
-            <button class="filter-tag active" data-tech="">
+            <button
+              class="filter-tag active"
+              data-tech=""
+              data-umami-event="project-filter-clicked"
+              data-umami-event-tech="all"
+            >
               All
             </button>
             {allTechnologies.map((tech) => (
-              <button class="filter-tag" data-tech={tech}>
+              <button
+                class="filter-tag"
+                data-tech={tech}
+                data-umami-event="project-filter-clicked"
+                data-umami-event-tech={tech}
+              >
                 {tech}
               </button>
             ))}

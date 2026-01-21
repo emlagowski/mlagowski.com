@@ -1,16 +1,28 @@
 ---
 const socialLinks = [
-  { href: "https://github.com/emlagowski", label: "GitHub", icon: "github" },
+  {
+    href: "https://github.com/emlagowski",
+    label: "GitHub",
+    icon: "github",
+    event: "github",
+  },
   {
     href: "https://linkedin.com/in/marcinlagowski",
     label: "LinkedIn",
     icon: "linkedin",
+    event: "linkedin",
   },
-  { href: "mailto:marcin@mlagowski.com", label: "Email", icon: "mail" },
+  {
+    href: "mailto:marcin@mlagowski.com",
+    label: "Email",
+    icon: "mail",
+    event: "email-me",
+  },
   {
     href: "https://buymeacoffee.com/emlagowski",
     label: "Buy Me a Coffee",
     icon: "coffee",
+    event: "buy-me-a-coffee",
   },
 ];
 
@@ -28,6 +40,8 @@ const currentYear = new Date().getFullYear();
             aria-label={link.label}
             target="_blank"
             rel="noopener noreferrer"
+            data-umami-event={link.event}
+            data-umami-event-where="footer"
           >
             <svg
               viewBox="0 0 24 24"
