@@ -194,15 +194,29 @@ const { Content } = await project.render();
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const lightboxCounter = document.getElementById("lightbox-counter");
-    const triggers = document.querySelectorAll("[data-lightbox-trigger]");
+    const galleryTriggers = document.querySelectorAll(
+      "[data-lightbox-trigger]",
+    );
     const closeBtn = document.querySelector(".lightbox-close");
     const prevBtn = document.querySelector(".lightbox-prev");
     const nextBtn = document.querySelector(".lightbox-next");
 
-    if (!lightbox || !triggers.length) return;
+    if (!lightbox) return;
+
+    // Build complete image list: screenshots + prose images
+    const screenshotImages = images || [];
+    const proseImages = [];
+    const proseImgElements = document.querySelectorAll(".prose img");
+
+    proseImgElements.forEach((img) => {
+      proseImages.push(img.src);
+    });
+
+    const imageList = [...screenshotImages, ...proseImages];
+
+    if (imageList.length === 0) return;
 
     let currentIndex = 0;
-    const imageList = images;
 
     function showImage(index) {
       currentIndex = index;
@@ -210,7 +224,7 @@ const { Content } = await project.render();
       if (currentIndex >= imageList.length) currentIndex = 0;
 
       lightboxImg.src = imageList[currentIndex];
-      lightboxImg.alt = `Screenshot ${currentIndex + 1}`;
+      lightboxImg.alt = `Image ${currentIndex + 1}`;
       lightboxCounter.textContent = `${currentIndex + 1} / ${imageList.length}`;
     }
 
@@ -225,10 +239,19 @@ const { Content } = await project.render();
       document.body.style.overflow = "";
     }
 
-    triggers.forEach((trigger) => {
+    // Gallery triggers (screenshots)
+    galleryTriggers.forEach((trigger) => {
       trigger.addEventListener("click", () => {
         const index = parseInt(trigger.getAttribute("data-index") || "0");
         openLightbox(index);
+      });
+    });
+
+    // Prose image triggers
+    proseImgElements.forEach((img, idx) => {
+      img.addEventListener("click", () => {
+        // Index offset: screenshots come first
+        openLightbox(screenshotImages.length + idx);
       });
     });
 

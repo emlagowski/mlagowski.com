@@ -12,7 +12,9 @@ featured: true
 date: 2020-11-15
 ---
 
-![Main page](/projects/lets-be-santa/lets-be-santa-main-page.png)
+<figure>
+  <img src="/projects/lets-be-santa/lets-be-santa-main-page.png" alt="Main page" />
+</figure>
 
 ## Overview
 
@@ -38,17 +40,31 @@ So it is currently a completely free solution. You can give it a try!
 
 ## Screenshots
 
-![event page](/projects/lets-be-santa/lets-be-santa-event-page.png)
+<figure>
+  <img src="/projects/lets-be-santa/lets-be-santa-event-page.png" alt="Event page" />
+</figure>
 
-![confirmation page](/projects/lets-be-santa/lets-be-santa-confirmation-page.png)
+<figure>
+  <img src="/projects/lets-be-santa/lets-be-santa-confirmation-page.png" alt="Confirmation page" />
+</figure>
 
 ## Results
 
 Despite almost no updates and no marketing, the website quietly grew.
 To this day it has generated over 26,000 Secret Santa events and helped 200,000+ participants draw their assignments. Seeing people use it every year (not only for Christmas) gives me a lot of joy — especially since this was originally just a fun experiment during lockdown.
 
-![new events](/projects/lets-be-santa/lets-be-santa-chart-1.png)
+<figure>
+  <img src="/projects/lets-be-santa/lets-be-santa-chart-1.png" alt="Events created over time." />
+  <figcaption>Events created over time.</figcaption>
+</figure>
 
-![new participants](/projects/lets-be-santa/lets-be-santa-chart-2.png)
+<figure>
+  <img src="/projects/lets-be-santa/lets-be-santa-chart-2.png" alt="New event participants over time." />
+  <figcaption>New event participants over time.</figcaption>
+</figure>
 
-![analytics](/projects/lets-be-santa/lets-be-santa-analytics.jpeg)
+<figure>
+  <img src="/projects/lets-be-santa/lets-be-santa-analytics.jpeg" alt="Vercel analytics." />
+  <figcaption>Vercel analytics.</figcaption>
+</figure>
+
