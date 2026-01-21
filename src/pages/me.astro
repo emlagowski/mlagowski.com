@@ -847,7 +847,7 @@ import Layout from "../components/Layout.astro";
               LinkedIn
             </a>
             <a
-              href="https://stackoverflow.com/users/marcinlagowski"
+              href="https://stackoverflow.com/users/3233685/marcin-lagowski"
               class="btn btn-ghost"
               target="_blank"
               rel="noopener noreferrer"
@@ -1317,6 +1317,9 @@ import Layout from "../components/Layout.astro";
     document.querySelectorAll(".hackathon-item[data-expandable]"),
   );
 
+  // Check if we're in multi-column layout (matches CSS breakpoint)
+  const isMultiColumn = () => window.innerWidth > 768;
+
   // Store original positions
   hackathonItems.forEach((item, index) => {
     item.style.order = index;
@@ -1336,8 +1339,9 @@ import Layout from "../components/Layout.astro";
       if (!wasExpanded) {
         item.classList.add("expanded");
 
-        // If right column (odd index), swap order with left neighbor
-        if (index % 2 === 1) {
+        // Only swap order if we're in multi-column layout (not mobile)
+        // If right column (odd index), swap order with left neighbor so it appears first in its row
+        if (isMultiColumn() && index % 2 === 1) {
           const leftItem = hackathonItems[index - 1];
           if (leftItem) {
             item.style.order = index - 1;
