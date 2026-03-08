@@ -7,6 +7,7 @@ coverImage: "/projects/splac-kredyt/1.png"
 #   - "/projects/splac-kredyt/2.png"
 #   - "/projects/splac-kredyt/3.png"
 technologies: ["React", "TypeScript", "Tailwind CSS", "AI", "Antigravity"]
+demo: "https://splackredyt.pl"
 featured: true
 date: 2026-03-08
 ---
