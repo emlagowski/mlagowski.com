@@ -3,7 +3,7 @@ title: "Getting Started with Astro"
 description: "An introduction to building fast, content-focused websites with Astro."
 date: 2024-01-10
 tags: ["Astro", "Web Development", "Tutorial"]
-draft: false
+draft: true
 coverImage: "articles/coding.png"
 ---
 
