@@ -13,6 +13,20 @@ export async function getStaticPaths() {
 type Props = { project: CollectionEntry<"projects"> };
 const { project } = Astro.props;
 const { Content } = await project.render();
+
+let demoUrlStr = project.data.demo;
+if (demoUrlStr) {
+  try {
+    const url = new URL(demoUrlStr);
+    url.searchParams.set("utm_source", "mlagowski.com");
+    url.searchParams.set("utm_medium", "referral");
+    demoUrlStr = url.toString();
+  } catch (e) {
+    const sep = demoUrlStr.includes("?") ? "&" : "?";
+    demoUrlStr = `${demoUrlStr}${sep}utm_source=mlagowski.com&utm_medium=referral`;
+  }
+}
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "CreativeWork",
@@ -94,9 +108,9 @@ const jsonLd = {
             )
           }
           {
-            project.data.demo && (
+            demoUrlStr && (
               <a
-                href={project.data.demo}
+                href={demoUrlStr}
                 class="btn btn-primary"
                 target="_blank"
                 rel="noopener noreferrer"

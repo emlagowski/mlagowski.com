@@ -15,7 +15,7 @@ Przeglądając Reddita, trafiłem na [wątek na r/Polska](https://www.reddit.com
 
 Pomyślałem: fajny pomysł, ale lista na Reddicie to nie to samo co narzędzie, z którego ludzie rzeczywiście mogliby korzystać. Reddit dobrze nadaje się do dyskusji, ale słabo do zbierania i filtrowania danych. Potrzebna była aplikacja.
 
-Następnego dnia **Sprawdź Knajpę** już działała.
+Następnego dnia aplikacja **Sprawdź Knajpę** już działała. Możesz zobaczyć efekt końcowy na [stronie projektu](/projects/sprawdz-knajpe/).
 
 ## Jak działa aplikacja?
 
