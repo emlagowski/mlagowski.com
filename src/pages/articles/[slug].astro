@@ -31,9 +31,28 @@ const coverTheme = article.data.coverTheme || "dark";
 const coverImagePath = article.data.coverImage?.startsWith("/")
   ? article.data.coverImage
   : `/${article.data.coverImage}`;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: article.data.title,
+  description: article.data.description,
+  image: new URL(coverImagePath, Astro.url),
+  datePublished: article.data.date.toISOString(),
+  author: {
+    "@type": "Person",
+    name: "Marcin Łagowski",
+    url: "https://emlagowski.github.io",
+  },
+};
 ---
 
-<Layout title={article.data.title} description={article.data.description}>
+<Layout
+  title={article.data.title}
+  description={article.data.description}
+  image={coverImagePath}
+  type="article"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <article class="article-detail">
     {
       hasCover && (

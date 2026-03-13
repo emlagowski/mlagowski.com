@@ -13,9 +13,27 @@ export async function getStaticPaths() {
 type Props = { project: CollectionEntry<"projects"> };
 const { project } = Astro.props;
 const { Content } = await project.render();
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  name: project.data.title,
+  description: project.data.description,
+  image: project.data.images?.[0]
+    ? new URL(project.data.images[0], Astro.url)
+    : undefined,
+  author: {
+    "@type": "Person",
+    name: "Marcin Łagowski",
+  },
+};
 ---
 
-<Layout title={project.data.title} description={project.data.description}>
+<Layout
+  title={project.data.title}
+  description={project.data.description}
+  image={project.data.images?.[0]}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <article class="project-detail">
     <div class="container container-narrow">
       <header class="project-header">
