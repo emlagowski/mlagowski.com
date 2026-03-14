@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://emlagowski.github.io',
+  site: 'https://mlagowski.com',
   base: '/',
   output: 'static',
   integrations: [sitemap()],
