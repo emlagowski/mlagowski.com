@@ -18,12 +18,6 @@ const socialLinks = [
     icon: "mail",
     event: "email-me",
   },
-  {
-    href: "https://buymeacoffee.com/emlagowski",
-    label: "Buy Me a Coffee",
-    icon: "coffee",
-    event: "buy-me-a-coffee",
-  },
 ];
 
 const currentYear = new Date().getFullYear();
@@ -65,19 +59,70 @@ const currentYear = new Date().getFullYear();
                   <polyline points="22,6 12,13 2,6" />
                 </>
               )}
-              {link.icon === "coffee" && (
-                <>
-                  <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
-                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
-                  <line x1="6" y1="1" x2="6" y2="4" />
-                  <line x1="10" y1="1" x2="10" y2="4" />
-                  <line x1="14" y1="1" x2="14" y2="4" />
-                </>
-              )}
             </svg>
           </a>
         ))
       }
+
+      <div class="coffee-wrapper">
+        <button
+          class="social-link coffee-btn"
+          aria-label="Buy Me a Coffee"
+          aria-expanded="false"
+          aria-haspopup="true"
+          id="coffee-btn"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+            <line x1="6" y1="1" x2="6" y2="4" />
+            <line x1="10" y1="1" x2="10" y2="4" />
+            <line x1="14" y1="1" x2="14" y2="4" />
+          </svg>
+        </button>
+
+        <div class="coffee-popover" id="coffee-popover" role="dialog" aria-label="Wybierz platformę wsparcia">
+          <a
+            href="https://buymeacoffee.com/emlagowski"
+            class="coffee-option"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-umami-event="buy-me-a-coffee"
+            data-umami-event-where="footer"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+              <line x1="6" y1="1" x2="6" y2="4" />
+              <line x1="10" y1="1" x2="10" y2="4" />
+              <line x1="14" y1="1" x2="14" y2="4" />
+            </svg>
+            Buy Me a Coffee
+          </a>
+          <a
+            href="https://suppi.pl/marcinlagowski"
+            class="coffee-option"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-umami-event="suppi"
+            data-umami-event-where="footer"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+              <line x1="6" y1="1" x2="6" y2="4" />
+              <line x1="10" y1="1" x2="10" y2="4" />
+              <line x1="14" y1="1" x2="14" y2="4" />
+            </svg>
+            Suppi
+          </a>
+        </div>
+      </div>
     </div>
 
     <p class="copyright">
@@ -85,6 +130,25 @@ const currentYear = new Date().getFullYear();
     </p>
   </div>
 </footer>
+
+<script>
+  const btn = document.getElementById('coffee-btn');
+  const popover = document.getElementById('coffee-popover');
+
+  btn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = popover?.classList.contains('open');
+    popover?.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  document.addEventListener('click', () => {
+    popover?.classList.remove('open');
+    btn?.setAttribute('aria-expanded', 'false');
+  });
+
+  popover?.addEventListener('click', (e) => e.stopPropagation());
+</script>
 
 <style>
   .footer {
@@ -131,5 +195,51 @@ const currentYear = new Date().getFullYear();
   .copyright {
     font-size: var(--text-sm);
     color: var(--color-text-muted);
+  }
+
+  .coffee-wrapper {
+    position: relative;
+  }
+
+  .coffee-btn {
+    background: none;
+    cursor: pointer;
+  }
+
+  .coffee-popover {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 8px);
+    right: 0;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-2);
+    min-width: 160px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .coffee-popover.open {
+    display: flex;
+  }
+
+  .coffee-option {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    white-space: nowrap;
+    transition: all var(--transition-base);
+  }
+
+  .coffee-option:hover {
+    background: var(--color-border-subtle);
+    color: var(--color-text);
   }
 </style>
